@@ -52,8 +52,8 @@ class PaymentMethod extends AbstractMethod
         \Magento\Sales\Model\OrderFactory $orderFactory,
         \Magento\Framework\Url $urlBuilder,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
-        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        ?\Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
+        ?\Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []){
         $this->urlBuilder = $urlBuilder;
         $this->_moduleList = $moduleList;
@@ -250,7 +250,7 @@ class PaymentMethod extends AbstractMethod
         return $parameter;
     }
     
-    public function isAvailable(\Magento\Quote\Api\Data\CartInterface $quote = null)
+    public function isAvailable(?\Magento\Quote\Api\Data\CartInterface $quote = null)
     {
         
         if (parent::isAvailable($quote) && $quote){
